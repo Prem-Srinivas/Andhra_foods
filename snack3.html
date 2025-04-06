@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karapu Boondi- Product Page</title>
+  <link rel="stylesheet" href="sweet1.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="product">
+      <img src="https://www.godavarivantillu.com/cdn/shop/products/Kara-boondi_480x.jpg?v=1594716227" alt="Karapu Boondi" class="product-image" />
+      <div class="product-details">
+        <h1>Karapu Boondi</h1>
+        <p class="rating">★★★★★ <span>50 reviews</span></p>
+        <p class="price" id="price">Rs. 140.00</p>
+        <p class="shipping">Shipping calculated at checkout.</p>
+        
+        <label for="weight">Weight</label>
+        <select id="weight" name="weight" onchange="updatePrice()">
+          <option value="140">250 gms - Rs. 140.00</option>
+          <option value="280">500 gms - Rs. 280.00</option>
+          <option value="540">1 kg - Rs. 540.00</option>
+        </select>
+
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" />
+
+        <button class="btn" onclick="addToCart('Karapu Boondi', 140, 'https://www.godavarivantillu.com/cdn/shop/products/Kara-boondi_480x.jpg?v=1594716227')">Add to Cart</button>
+        
+
+        <h3>Product Description</h3>
+        <p>Kara bondi is the savoury snacks prepared with gram flour that mixed with red chili masala, and curry leaves to spice up the savoury snack and nuts like cashews and peanuts to give you crunchy texture mixed with nutty flavour. Make it a wholesome treat with Karam boondi from Andhra Pradesh.
+
+            Ingredients
+            
+            Gram flour
+            
+            Chili powder
+            
+            Curry leaves
+            
+            Cashews
+            
+            Peanuts
+            
+            Salt</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updatePrice() {
+      const weightSelect = document.getElementById('weight');
+      const priceDisplay = document.getElementById('price');
+      const selectedPrice = weightSelect.value;
+      priceDisplay.textContent = `Rs. ${selectedPrice}.00`;
+    }
+    function addToCart(name, price, img) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+      // Check if item already exists
+      const index = cart.findIndex(p => p.name === name);
+      if (index !== -1) {
+        cart[index].qty += 1;
+      } else {
+        cart.push({ name, price, img, qty: 1 });
+      }
+  
+      // Save back to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+  
+      // ✅ Redirect to cart page instantly
+      window.location.href = "cart.html";
+    }
+  </script>
+</body>
+</html>
+ .>?

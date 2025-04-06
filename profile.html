@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Profile - Andhra Foods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: orange;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background: orange;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin: 10px 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: darkorange;
+    }
+
+    .info {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .order-history {
+      margin-top: 30px;
+    }
+
+    .order-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .order-card h4 {
+      margin-bottom: 5px;
+    }
+
+    .order-card p {
+      margin: 5px 0;
+    }
+    header {
+    background-color: blanchedalmond;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+    
+  
+  .logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 70%;
+    margin-right: 10px;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .bold {
+    font-weight: bold;
+    color: #35c98b;
+   
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .highlight {
+    color: #ff0000;
+    font-weight: bold;
+    
+    font-size: 40px;
+    font-weight: bold;
+  }
+.hero {
+    background: 
+                url('https://cdn.vox-cdn.com/thumbor/BYI_M85DQvySfxnNizQYThgKX-A=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/25035677/shutterstock_2068990322.jpg');
+    background-size: cover;
+    background-position: right;
+    color: rgb(0, 0, 0);
+    text-align: center;
+        text-shadow: 10px 10px 10px rgb(0, 0, 0);
+    font-size: 40px;
+    font-weight: bold;
+    color: #090707;
+    padding: 10rem 10rem;
+    
+}
+
+
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 25px;
+}
+
+h2 {
+      
+    font-size: 45px;  
+    text-align: center;
+    margin-top: 25px;
+}
+  </style>
+</head>
+<header>
+    <div class="logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf9VWrCGUBIuA5vlrnpXWaSNULyvGANH1CfQ&s" alt="Logo" />
+      <div class="logo-text">
+        <span class="bold">ANDHRA</span>
+        <span class="highlight">FOODS</span>
+      </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sweet.html">Sweets</a></li>
+            <li><a href="snack.html">Snacks</a></li>
+            <li><a href="pickle.html">Pickles</a></li>
+            <li><a href="login.html">Account</a></li>
+            <a href="cart.html" style="text-decoration:none; font-size:30px;">🛒</a>
+          
+        </ul>
+    </nav>
+</header>
+<body>
+
+  <div class="header">
+    <h1>Welcome to Andhra Foods</h1>
+  </div>
+
+  <div class="profile-container">
+    <div class="info">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf9VWrCGUBIuA5vlrnpXWaSNULyvGANH1CfQ&s" alt="Profile Picture" class="profile-pic" />
+      <h2 id="user-name">Customer Name</h2>
+      <p id="user-email">example@email.com</p>
+    </div>
+
+    <div style="text-align: center;">
+      <button class="btn" onclick="window.location.href='index.html'">🛍️ Shop</button>
+      <button class="btn" onclick="window.location.href='cart.html'">🛒 View Cart</button>
+      <button class="btn" onclick="logout()">🚪 Logout</button>
+    </div>
+
+    <div class="order-history">
+      <h3>📦 Order History</h3>
+      <div id="orders-container">
+        <!-- Orders will load here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Redirect to login if not logged in
+   
+    // Load profile info
+    const userName = localStorage.getItem("userName");
+    const userEmail = localStorage.getItem("userEmail");
+
+    document.getElementById("user-name").innerText = userName;
+    document.getElementById("user-email").innerText = userEmail;
+
+    // Load order history
+    const orders = JSON.parse(localStorage.getItem("orderHistory")) || [];
+    const container = document.getElementById("orders-container");
+
+    if (orders.length === 0) {
+      container.innerHTML = "<p>No orders placed yet.</p>";
+    } else {
+      orders.forEach(order => {
+        const card = document.createElement("div");
+        card.className = "order-card";
+        card.innerHTML = `
+          <h4>🗓️ ${order.date}</h4>
+          <p><strong>Items:</strong> ${order.items.join(", ")}</p>
+          <p><strong>Total:</strong> ₹${order.total}</p>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Logout function
+    function logout() {
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("cart");
+      // localStorage.removeItem("orderHistory"); // Optional
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gongura Mutton Boneless Pickle - Andhra Style - Product Page</title>
+  <link rel="stylesheet" href="sweet1.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="product">
+      <img src="https://www.godavarivantillu.com/cdn/shop/products/GonguraMuttonPickle_480x.jpg?v=1627598884" alt="Gongura Mutton Boneless Pickle - Andhra Style" class="product-image" />
+      <div class="product-details">
+        <h1>Gongura Mutton Boneless Pickle - Andhra Style</h1>
+        <p class="rating">★★★★★ <span>50 reviews</span></p>
+        <p class="price" id="price">Rs. 140.00</p>
+        <p class="shipping">Shipping calculated at checkout.</p>
+        
+        <label for="weight">Weight</label>
+        <select id="weight" name="weight" onchange="updatePrice()">
+          <option value="500">250 gms - Rs. 500.00</option>
+          <option value="1000">500 gms - Rs. 1000.00</option>
+          <option value="2000">1 kg - Rs. 2000.00</option>
+        </select>
+
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" />
+
+        <button class="btn" onclick="addToCart('Gongura Mutton Boneless Pickle - Andhra Style', 500, 'https://www.godavarivantillu.com/cdn/shop/products/GonguraMuttonPickle_480x.jpg?v=1627598884')">Add to Cart</button>
+        
+
+        <h3>Product Description</h3>
+        <p>With a fusion of spices mixed with a sour acidity by sorrel to provide a piquant burst of flavor, the gongura boneless mutton pickle is a true delicacy of Andhra. Gongura boneless mutton achar is now found in this authentic, online store, Godavari Vantillu. Filled with a flavor that will have you salivating, the Gongura Mutton pickle is now available for those seeking a brand-new taste. With a spicy zing and tart taste, Boneless Gongura Mutton achar is the perfect spot for those looking for a delightfully piquant dish to satisfy their craving. 
+
+            Ingredients
+            
+            Fresh and high-quality mutton
+            
+            Gongura/ Sorrel leaves
+            
+            Garam Masala
+            
+            Lemon
+            
+            Red Chili
+            
+            Salt
+            
+            Groundnut oil
+            
+            Turmeric</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updatePrice() {
+      const weightSelect = document.getElementById('weight');
+      const priceDisplay = document.getElementById('price');
+      const selectedPrice = weightSelect.value;
+      priceDisplay.textContent = `Rs. ${selectedPrice}.00`;
+    }
+    function addToCart(name, price, img) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+      // Check if item already exists
+      const index = cart.findIndex(p => p.name === name);
+      if (index !== -1) {
+        cart[index].qty += 1;
+      } else {
+        cart.push({ name, price, img, qty: 1 });
+      }
+  
+      // Save back to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+  
+      // ✅ Redirect to cart page instantly
+      window.location.href = "cart.html";
+    }
+  </script>
+</body>
+</html>
+ .>?

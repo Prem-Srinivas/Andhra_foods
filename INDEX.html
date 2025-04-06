@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andhra Foods</title>
+    <link rel="stylesheet" href="index.css">
+
+<style>
+    .product { border: 1px solid #ccc; padding: 10px; width: 200px; margin: 10px; display: inline-block; }
+    .product img { width: 100%; height: 120px; object-fit: cover; }
+    .btn { background: green; color: white; padding: 5px 10px; border: none; cursor: pointer; }
+    .cart-link { position: fixed; top: 20px; right: 20px; background: #eee; padding: 10px; border-radius: 8px; }
+  
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: orange;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-btn {
+      font-size: 20px;
+      background: white;
+      color: orange;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Slide Cart */
+    #cart-panel {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 350px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+      padding: 20px;
+      z-index: 1000;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+    }
+
+    #cart-panel.open {
+      right: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .cart-details {
+      flex: 1;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: red;
+      float: right;
+      cursor: pointer;
+    }
+
+    .btn {
+      background: orange;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  </style>
+  </head>
+    <header>
+        <div class="logo">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf9VWrCGUBIuA5vlrnpXWaSNULyvGANH1CfQ&s" alt="Logo" />
+          <div class="logo-text">
+            <span class="bold">ANDHRA</span>
+            <span class="highlight">FOODS</span>
+          </div>
+        
+      
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sweet.html">Sweets</a></li>
+                <li><a href="snack.html">Snacks</a></li>
+                <li><a href="pickle.html">Pickles</a></li>
+                
+                <li><a href="login.html">Account</a></li>
+               
+                <a href="cart.html" style="text-decoration:none; font-size:30px;">🛒</a>
+            </ul>
+        </nav>
+    </header>
+    <section id="home" class="hero">
+           <span class="bold">ANDHRA</span>
+            <span class="highlight">FOODS</span>
+            <h1>Experience the Flavours of Andhra Pradesh</h1>
+         
+          
+        </section>
+<body>
+    
+
+        <div class="body">
+    <section id="sweets">
+        <h2>Sweets</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="https://southindianstore.com/wp-content/uploads/2020/11/bellam-gavvalu.jpg" alt="Bellam Gavvalu">
+                <p>Bellam Gavvalu</p>
+                <p>Price &#x20b9; 140</p>
+                <a href="sweet1.html">
+                    <button>view more</button>
+              </a>
+            </div>
+            <div class="product">
+                <img src="https://www.godavarivantillu.com/cdn/shop/products/tapeswaram-madatha-kaja-272_1024x1024.jpg?v=1637866881" alt="Tapeswaram Madatha Kaja">
+                <p>Tapeswaram Madatha Kaja</p>
+                <p>Price &#x20b9; 175</p>
+                <a href="sweet2.html">
+                    <button>view more</button>
+              </a>
+            </div>
+            <div class="product">
+                <img src="https://dwarakapickles.com/wp-content/uploads/2022/05/512a4d_112f8fd80a2a41a595f090c3d66665dc_mv2.webp" alt="Dry Fruit Pootharekulu">
+                <p>Dry Fruit Pootharekulu</p>
+                <p>Price &#x20b9; 450</p>
+                <a href="sweet3.html">
+                    <button>view more</button>
+              </a>
+            </div>
+           <div class="product">
+                <img src="https://sitarafoods.com/wp-content/uploads/2022/07/Handmade-Palakova.jpg" alt="Kova Billalu / Pala kova">
+                <p>Kova Billalu / Pala kova</p>
+                <p>Price &#x20b9; 210</p>
+                <a href="sweet4.html">
+                    <button>view more</button>
+              </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="snacks">
+        <h2>Snacks</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="https://www.godavarivantillu.com/cdn/shop/files/chekkalu_480x.png?v=1709705896" alt="Andhra Special Chekkalu">
+                <p>Andhra Special Chekkalu</p>
+                <p>Price &#x20b9; 165</p>
+                <a href="snack1.html">
+                    <button>view more</button>
+              </a>
+            </div>
+           
+                <div class="product">
+                    <img src="https://www.godavarivantillu.com/cdn/shop/files/peacocklife4555-Edit_a8244da5-23d8-4e38-a9ad-edb81416d3fd-removebg-preview_1_480x.png?v=1709700897" alt="Atukula Mixture">
+                    <p>Atukula Mixture</p>
+                    <p>Price &#x20b9; 125</p>
+                    <a href="snack2.html">
+                        <button>view more</button>
+                  </a>
+                </div>
+               
+                    <div class="product">
+                        <img src="https://www.godavarivantillu.com/cdn/shop/products/Kara-boondi_480x.jpg?v=1594716227" alt="Karapu Boondi">
+                        <p>Karapu Boondi</p>
+                        <p>Price &#x20b9; 140</p>
+                        <a href="snack3.html">
+                            <button>view more</button>
+                      </a>
+                    </div>
+                    <div class="product">
+                        <img src="https://www.godavarivantillu.com/cdn/shop/products/Vampusa-removebg-preview_1_480x.png?v=1595054677" alt="Vampusa / Vamu Pusa">
+                        <p>Vampusa / Vamu Pusa</p>
+                        <p>Price &#x20b9; 125</p>
+                        <a href="snack4.html">
+                            <button>view more</button>
+                      </a>
+               </div>
+            </div>
+    </section>
+    <section id="Pickles">
+        <h2>Pickles</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="https://www.distacart.com/cdn/shop/files/download-2024-05-28T151813.330_1280x.jpg?v=1716889829" alt="Avakaya - Authentic Andhra Mango Pickle">
+                <p>Avakaya - Authentic Andhra Mango Pickle</p>
+                <p>Price &#x20b9; 165</p>
+                <a href="pickle1.html">
+                    <button>view more</button>
+              </a>
+            </div>
+            <div class="product">
+                <img src="https://i0.wp.com/aarogyamastu.in/wp-content/uploads/2022/06/gongura-pickle-e1671970585808.jpg?fit=600%2C600&ssl=1" alt="Gongura Pickle ">
+                <p>Gongura Pickle </p>
+                <p>Price &#x20b9; 125</p>
+                <a href="pickle2.html">
+                    <button>view more</button>
+              </a>
+            </div>
+            <div class="product">
+                <img src="https://www.sailusfood.com/wp-content/uploads/2015/08/andhra-tomato-pickle.jpg" alt="Andhra Tomato Pickle">
+                <p>Andhra Tomato Pickle</p>
+                <p>Price &#x20b9; 140</p>
+                <a href="pickle3.html">
+                    <button>view more</button>
+              </a>
+            </div>
+           <div class="product">
+                <img src="https://www.godavarivantillu.com/cdn/shop/products/PrawnsPickle_480x.jpg?v=1627597545" alt="Andhra Style Spicy Prawns Pickle">
+                <p>Andhra Style Spicy Prawns Pickle</p>
+                <p>Price &#x20b9; 425</p>
+                <a href="pickle5.html">
+                    <button>view more</button>
+              </a>
+            </div>
+             <div class="product">
+                <img src="https://www.godavarivantillu.com/cdn/shop/products/GonguraMuttonPickle_480x.jpg?v=1627598884" alt="Gongura Mutton Boneless Pickle - Andhra Style">
+                <p>Gongura Mutton Boneless Pickle - Andhra Style</p>
+                <p>Price &#x20b9; 500</p>
+                <a href="pickle6.html">
+                    <button>view more</button>
+              </a>
+            </div> 
+            <div class="product">
+                <img src="https://www.godavarivantillu.com/cdn/shop/products/andhra-fish-pickle-867_480x.jpg?v=1631733028" alt="Andhra Fish Pickle">
+                <p>Andhra Fish Pickle</p>
+                <p>Price &#x20b9; 250</p>
+                <a href="pickle7.html">
+                    <button>view more</button>
+              </a>
+            </div>
+            
+     </div>
+     
+     <div id="cart-panel">
+        <button class="close-btn" onclick="closeCart()">✖</button>
+        <h3>Your Cart</h3>
+        <div id="cart-container"></div>
+        <p><strong>Total:</strong> ₹<span id="cart-total">0</span></p>
+        <button class="btn" onclick="proceedToPayment()">💳 Proceed to Payment</button>
+      </div>
+    
+      <!-- ✅ JS Logic -->
+      <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+        const panel = document.getElementById("cart-panel");
+        const container = document.getElementById("cart-container");
+        const totalEl = document.getElementById("cart-total");
+    
+        function openCart() {
+          panel.classList.add("open");
+          updateCart();
+        }
+    
+        function closeCart() {
+          panel.classList.remove("open");
+        }
+    
+        function updateCart() {
+          container.innerHTML = "";
+          let total = 0;
+    
+          if (cart.length === 0) {
+            container.innerHTML = "<p>Your cart is empty.</p>";
+            totalEl.innerText = 0;
+            return;
+          }
+    
+          cart.forEach((item, index) => {
+            const itemTotal = item.price * item.qty;
+            total += itemTotal;
+    
+            const div = document.createElement("div");
+            div.className = "cart-item";
+            div.innerHTML = `
+              <img src="${item.img}" alt="${item.name}">
+              <div class="cart-details">
+                <strong>${item.name}</strong>
+                <p>₹${item.price} × ${item.qty}</p>
+                <button onclick="removeItem(${index})" style="color:red;">❌ Remove</button>
+              </div>
+            `;
+            container.appendChild(div);
+          });
+    
+          totalEl.innerText = total;
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+    
+        function removeItem(index) {
+          cart.splice(index, 1);
+          updateCart();
+        }
+    
+        function proceedToPayment() {
+          if (cart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+          }
+          window.location.href = "payment.html";
+        }
+      </script>
+    
+          
+    <footer>
+        <p>Eat good, feel good.</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andhra Style Spicy Prawns Pickle - Product Page</title>
+  <link rel="stylesheet" href="sweet1.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="product">
+      <img src="https://www.godavarivantillu.com/cdn/shop/products/PrawnsPickle_480x.jpg?v=1627597545" alt="Andhra Style Spicy Prawns Pickle" class="product-image" />
+      <div class="product-details">
+        <h1>Andhra Style Spicy Prawns Pickle</h1>
+        <p class="rating">★★★★★ <span>50 reviews</span></p>
+        <p class="price" id="price">Rs. 425.00</p>
+        <p class="shipping">Shipping calculated at checkout.</p>
+        
+        <label for="weight">Weight</label>
+        <select id="weight" name="weight" onchange="updatePrice()">
+          <option value="425">250 gms - Rs. 425.00</option>
+          <option value="850">500 gms - Rs. 850.00</option>
+          <option value="1700">1 kg - Rs. 1700.00</option>
+        </select>
+
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" />
+
+        <button class="btn" onclick="addToCart('Andhra Style Spicy Prawns Pickle', 425, 'https://www.godavarivantillu.com/cdn/shop/products/PrawnsPickle_480x.jpg?v=1627597545')">Add to Cart</button>
+        
+
+        <h3>Product Description</h3>
+        <p>This mouthwatering spicy Andhra style prawns pickle (royyala avakaya) is made by following authentic Godavari elegance. Prawn achar is a perfect side dish for any meal whenever you run out of time to make a curry, as this is just sufficient if you are a non-veg lover. For all the lovers of prawns, this royyala pickle is just a feast on your taste buds as it was made with special masala to match with fresh Godavari style prawns’ curry. However, Bhimavaram’s prawn pickle has its own aroma and taste.
+
+Ingredients
+
+Fresh and high-quality Prawns
+
+Garam Masala
+
+Lemon
+
+Red Chili
+
+Salt
+
+Ground nut oil
+
+Turmeric
+
+Garlic and Ginger</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updatePrice() {
+      const weightSelect = document.getElementById('weight');
+      const priceDisplay = document.getElementById('price');
+      const selectedPrice = weightSelect.value;
+      priceDisplay.textContent = `Rs. ${selectedPrice}.00`;
+    }
+    
+    
+    function addToCart(name, price, img) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+      // Check if item already exists
+      const index = cart.findIndex(p => p.name === name);
+      if (index !== 1) {
+        cart[index].qty += 1;
+      } else {
+        cart.push({ name, price, img, qty: 1 });
+      }
+  
+      // Save back to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+  
+      // ✅ Redirect to cart page instantly
+      window.location.href = "cart.html";
+    }
+  </script>
+
+  </script>
+</body>
+</html>
+ .>?

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Sales Management System</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .product { border: 1px solid #ccc; padding: 10px; width: 200px; margin: 10px; display: inline-block; }
+        .product img { width: 100%; height: 120px; object-fit: cover; }
+        .btn { background: green; color: white; padding: 5px 10px; border: none; cursor: pointer; }
+        .cart-link { position: fixed; top: 20px; right: 20px; background: #eee; padding: 10px; border-radius: 8px; }
+      </style>
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf9VWrCGUBIuA5vlrnpXWaSNULyvGANH1CfQ&s" alt="Logo" />
+          <div class="logo-text">
+            <span class="bold">ANDHRA</span>
+            <span class="highlight">FOODS</span>
+          </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sweet.html">Sweets</a></li>
+                <li><a href="snack.html">Snacks</a></li>
+                <li><a href="pickle.html">Pickles</a></li>
+                <li><a href="login.html">Account</a></li>
+                <a href="cart.html" style="text-decoration:none; font-size:30px;">🛒</a>
+              
+            </ul>
+        </nav>
+    </header>
+
+    <section id="snacks">
+        <h2>Snacks</h2>
+        <div class="product-container">
+            <div class="product">
+                <img src="https://www.godavarivantillu.com/cdn/shop/files/chekkalu_480x.png?v=1709705896" alt="Andhra Special Chekkalu">
+                <p>Andhra Special Chekkalu</p>
+                <p>Price &#x20b9; 165</p>
+                <a href="snack1.html">
+                    <button>view more</button>
+              </a>
+            </div>
+         
+                <div class="product">
+                    <img src="https://www.godavarivantillu.com/cdn/shop/files/peacocklife4555-Edit_a8244da5-23d8-4e38-a9ad-edb81416d3fd-removebg-preview_1_480x.png?v=1709700897" alt="Atukula Mixture">
+                    <p>Atukula Mixture</p>
+                    <p>Price &#x20b9; 125</p>
+                    <a href="snack2.html">
+                        <button>view more</button>
+                  </a>
+                </div>
+                
+                    <div class="product">
+                        <img src="https://www.godavarivantillu.com/cdn/shop/products/Kara-boondi_480x.jpg?v=1594716227" alt="Karapu Boondi">
+                        <p>Karapu Boondi</p>
+                        <p>Price &#x20b9; 125</p>
+                        <a href="snack3.html">
+                            <button>view more</button>
+                      </a>
+                    </div>
+                  
+                        <div class="product">
+                            <img src="https://www.godavarivantillu.com/cdn/shop/products/Vampusa-removebg-preview_1_480x.png?v=1595054677" alt="Vampusa / Vamu Pusa">
+                            <p>Vampusa / Vamu Pusa</p>
+                            <p>Price &#x20b9; 125</p>
+                            <a href="snack4.html">
+                                <button>view more</button>
+                          </a>
+                        </div>
+                      
+                            <div class="product">
+                                <img src="https://www.godavarivantillu.com/cdn/shop/products/PalliPakodiAndhraSnack_502ca1c9-194a-4844-a8af-402707d0105a_360x.jpg?v=1631104078" alt="Palli Pakodi">
+                                <p>Palli Pakodi</p>
+                                <p>Price &#x20b9; 125</p>
+                                <a href="snack5.html">
+                                    <button>view more</button>
+                              </a>
+                            </div>
+                         
+                                <div class="product">
+                                    <img src="https://www.godavarivantillu.com/cdn/shop/products/SpecialNarayanaLankaPappuChegodiwithourfoodcolor_360x.png?v=1596976258" alt="Special Pappu Chegodi">
+                                    <p>Special Pappu Chegodi</p>
+                                    <p>Price &#x20b9; 125</p>
+                                    <a href="snack6.html">
+                                        <button>view more</button>
+                                  </a>
+                                </div>
+                                
+                                    <div class="product">
+                                        <img src="https://www.godavarivantillu.com/cdn/shop/files/Ribbon_pakoda-removebg-preview_1_360x.png?v=1709703819" alt="Ribbon Pakoda ">
+                                        <p>Ribbon Pakoda </p>
+                                        <p>Price &#x20b9; 125</p>
+                                        <a href="snack7.html">
+                                            <button>view more</button>
+                                      </a>
+                                    </div>
+                                    
+                                        <div class="product">
+                                            <img src="https://www.godavarivantillu.com/cdn/shop/products/IMG_0102_360x.png?v=1668503661" alt="Corn Flakes Mixture">
+                                            <p>Corn Flakes Mixture</p>
+                                            <p>Price &#x20b9; 125</p>
+                                            <a href="snack8.html">
+                                                <button>view more</button>
+                                          </a>
+                          </div>
+                  </div>
+           </section>
+           <script>
+            function addToCart(name, price, img) {
+              let cart = JSON.parse(localStorage.getItem("cart")) || [];
+              const index = cart.findIndex(item => item.name === name);
+              if (index !== -1) {
+                cart[index].qty += 1;
+              } else {
+                cart.push({ name, price, img, qty: 1 });
+              }
+              localStorage.setItem("cart", JSON.stringify(cart));
+              alert(`${name} add to cart!`);
+            }
+          </script>
+          <script>
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const container = document.getElementById("cart-container");
+            const totalEl = document.getElementById("cart-total");
+        
+            function updateCart() {
+              container.innerHTML = "";
+              let total = 0;
+        
+              if (cart.length === 0) {
+                container.innerHTML = "<p>Your cart has no products.</p>";
+                totalEl.innerText = 0;
+                return;
+              }
+        
+              cart.forEach((product, index) => {
+                const productTotal = product.price * product.qty;
+                total += productTotal;
+        
+                const div = document.createElement("div");
+                div.className = "cart-product";
+                div.innerHTML = `
+                  <img src="${product.img}" alt="${product.name}">
+                  <div class="details">
+                    <strong>${product.name}</strong>
+                    <p>₹${product.price}</p>
+                    <p>
+                      <button class="qty" onclick="changeQty(${index}, -1)">−</button>
+                      ${product.qty}
+                      <button class="qty" onclick="changeQty(${index}, 1)">+</button>
+                    </p>
+                    <p><button onclick="removeProduct(${index})" style="color:red; background:none; border:none;">❌ Remove</button></p>
+                  </div>
+                `;
+                container.appendChild(div);
+              });
+        
+              totalEl.innerText = total;
+              localStorage.setItem("cart", JSON.stringify(cart));
+            }
+        
+            function changeQty(index, delta) {
+              cart[index].qty += delta;
+              if (cart[index].qty <= 0) removeProduct(index);
+              else updateCart();
+            }
+        
+            function removeProduct(index) {
+              cart.splice(index, 1);
+              updateCart();
+            }
+        
+            function proceedToPayment() {
+              if (cart.length === 0) {
+                alert("Your cart has no products!");
+                return;
+              }
+              window.location.href = "payment.html";
+            }
+        
+            updateCart();
+          </script>
+        
+    <footer>
+        <p>&copy; 2025 Food Sales Management System</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

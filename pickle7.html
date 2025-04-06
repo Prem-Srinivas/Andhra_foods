@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Andhra Fish Pickle- Product Page</title>
+  <link rel="stylesheet" href="sweet1.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="product">
+      <img src="https://www.godavarivantillu.com/cdn/shop/products/andhra-fish-pickle-867_480x.jpg?v=1631733028" alt="Andhra Fish Pickle" class="product-image" />
+      <div class="product-details">
+        <h1>Andhra Fish Pickle</h1>
+        <p class="rating">★★★★★ <span>50 reviews</span></p>
+        <p class="price" id="price">Rs. 250.00</p>
+        <p class="shipping">Shipping calculated at checkout.</p>
+        
+        <label for="weight">Weight</label>
+        <select id="weight" name="weight" onchange="updatePrice()">
+          <option value="250">250 gms - Rs. 250.00</option>
+          <option value="480">500 gms - Rs. 480.00</option>
+          <option value="850">1 kg - Rs. 850.00</option>
+        </select>
+
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" />
+
+        <button class="btn" onclick="addToCart('Andhra Fish Pickle', 250, 'https://www.godavarivantillu.com/cdn/shop/products/andhra-fish-pickle-867_480x.jpg?v=1631733028')">Add to Cart</button>
+        
+
+        <h3>Product Description</h3>
+        <p>A taste of Godavari is never complete without a generous helping of their favorite side dish, Andhra’s fish pickle. Fish Achar is the most popular, traditional, and delicious side dish of the Godavari district. A fish pickle served as a side dish with cooked rice has a tangy and tantalizing flavor, which is because of the unique mix of masala made especially for fish achar and traditional culinary methods employed in processing.
+
+            Ingredients
+            
+            Fresh and high-quality Fish
+            
+            Garam Masala
+            
+            Lemon
+            
+            Red Chili
+            
+            Salt
+            
+            Ground nut oil
+            
+            Turmeric</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updatePrice() {
+      const weightSelect = document.getElementById('weight');
+      const priceDisplay = document.getElementById('price');
+      const selectedPrice = weightSelect.value;
+      priceDisplay.textContent = `Rs. ${selectedPrice}.00`;
+    }
+    function addToCart(name, price, img) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  
+      // Check if item already exists
+      const index = cart.findIndex(p => p.name === name);
+      if (index !== -1) {
+        cart[index].qty += 1;
+      } else {
+        cart.push({ name, price, img, qty: 1 });
+      }
+  
+      // Save back to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+  
+      // ✅ Redirect to cart page instantly
+      window.location.href = "cart.html";
+    }
+  </script>
+</body>
+</html>
+ .>?
+ 

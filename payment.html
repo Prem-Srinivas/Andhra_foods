@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+</head>
+<body>
+
+  <h1>Checkout</h1>
+  <form action="process_order.php" method="POST" onsubmit="return submitOrder()">
+    <input type="text" name="name" placeholder="Your Name" required><br><br>
+    <input type="text" name="card" placeholder="Card Number" maxlength="16" required><br><br>
+
+    <input type="hidden" name="items" id="itemsField">
+    <input type="hidden" name="total" id="totalField">
+
+    <button type="submit">Pay Now</button>
+  </form>
+
+  <script>
+    function submitOrder() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return false;
+      }
+
+      const items = cart.map(i => `${i.name} x${i.qty}`).join(', ');
+      const total = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+      document.getElementById("itemsField").value = items;
+      document.getElementById("totalField").value = total;
+
+      localStorage.removeItem("cart");
+      return true;
+    }
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let orders = JSON.parse(localStorage.getItem("orderHistory")) || [];
+
+const newOrder = {
+  date: new Date().toISOString().split("T")[0],
+  items: cart.map(p => p.name),
+  total: cart.reduce((acc, p) => acc + p.price * p.qty, 0)
+};
+
+orders.push(newOrder);
+localStorage.setItem("orderHistory", JSON.stringify(orders));
+localStorage.removeItem("cart"); // clear cart after order
+</script>
+
+</body>
+</html>

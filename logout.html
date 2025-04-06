@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logging Out...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .logout-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logout-box">
+    <h2>Logging you out...</h2>
+    <p>Redirecting to login page in 2 seconds.</p>
+  </div>
+
+  <script>
+    // Clear user session data
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("cart"); 
+    // You can also clear orderHistory if needed:
+    // localStorage.removeItem("orderHistory");
+
+    // Redirect after short delay
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 2000);
+  </script>
+
+</body>
+</html>

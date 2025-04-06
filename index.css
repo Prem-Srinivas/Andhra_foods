@@ -1,0 +1,165 @@
+
+  header {
+    background-color: blanchedalmond;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+    
+  
+  .logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 70%;
+    margin-right: 10px;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .bold {
+    font-weight: bold;
+    color: #35c98b;
+   
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .highlight {
+    color: #ff0000;
+    font-weight: bold;
+    
+    font-size: 40px;
+    font-weight: bold;
+  }
+.hero {
+    background: 
+                url('https://cdn.vox-cdn.com/thumbor/BYI_M85DQvySfxnNizQYThgKX-A=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/25035677/shutterstock_2068990322.jpg');
+    background-size: cover;
+    background-position: right;
+    color: rgb(0, 0, 0);
+    text-align: center;
+        text-shadow: 10px 10px 10px rgb(0, 0, 0);
+    font-size: 40px;
+    font-weight: bold;
+    color: #090707;
+    padding: 10rem 10rem;
+    
+}
+
+
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 25px;
+}
+
+h2 {
+      
+    font-size: 45px;  
+    text-align: center;
+    margin-top: 25px;
+}
+body {
+    background-color: blanchedalmond;
+
+
+  }
+  
+.product-container {
+  display: grid;
+    grid-template-columns: auto auto auto auto ;
+    gap: 20px;
+   
+}
+
+.product {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+    
+    text-align: center;
+}
+.product content {
+  padding: 30px;
+  text-align: center;
+}
+.product title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.product img {
+  
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product p {
+  transform: translateY(-10px);
+    margin: 10px 0;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#cart-summary {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: auto;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer {
+    background: 
+                url('https://thumbs.dreamstime.com/b/watercolor-poppy-bottom-border-horizontal-floral-background-abstract-pink-flowers-leaves-white-botanical-illustration-180021083.jpg');
+    background-size: cover;
+    background-position: bottom;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 2rem 2rem;
+}

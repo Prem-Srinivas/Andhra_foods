@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Cart</title>
+  <style>
+    
+  
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 80%;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .cart-product {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .cart-product img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .details { flex: 1; }
+
+    .btn {
+      background: orange;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .qty {
+      padding: 2px 8px;
+      margin: 0 5px;
+    }
+
+    .total {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .back-link {
+      margin-top: 20px;
+      display: inline-block;
+      text-decoration: none;
+      color: orange;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- ✅ Cart Panel -->
+  <div class="cart-panel">
+    <h3>Your Cart</h3>
+    <div id="cart-container"></div>
+    <div class="total">Total: ₹<span id="cart-total">0</span></div>
+    <br>
+    <a href="INDEX.html"><button class="btn">← Back to Products</button></a>
+    <button class="btn" onclick="proceedToPayment()">💳 Proceed to Payment</button>
+  </div>
+
+  <!-- ✅ JS to Load Cart -->
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const container = document.getElementById("cart-container");
+    const totalEl = document.getElementById("cart-total");
+
+    function updateCart() {
+      container.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p>Your cart has no products.</p>";
+        totalEl.innerText = 0;
+        return;
+      }
+
+      cart.forEach((product, index) => {
+        const productTotal = product.price * product.qty;
+        total += productTotal;
+
+        const div = document.createElement("div");
+        div.className = "cart-product";
+        div.innerHTML = `
+          <img src="${product.img}" alt="${product.name}">
+          <div class="details">
+            <strong>${product.name}</strong>
+            <p>₹${product.price}</p>
+            <p>
+              <button class="qty" onclick="changeQty(${index}, -1)">−</button>
+              ${product.qty}
+              <button class="qty" onclick="changeQty(${index}, 1)">+</button>
+            </p>
+            <p><button onclick="removeProduct(${index})" style="color:red; background:none; border:none;">❌ Remove</button></p>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      totalEl.innerText = total;
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) removeProduct(index);
+      else updateCart();
+    }
+
+    function removeProduct(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function proceedToPayment() {
+      if (cart.length === 0) {
+        alert("Your cart has no products!");
+        return;
+      }
+      window.location.href = "payment.html";
+    }
+
+    updateCart();
+    
+  </script>
+
+</body>
+</html>
