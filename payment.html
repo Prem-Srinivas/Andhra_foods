@@ -1,51 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Payment</title>
+  <title>Payment | Andhra Foods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f6f6;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .section {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    img {
+      width: 100%;
+      max-width: 250px;
+      display: block;
+      margin: 20px auto;
+    }
+
+    form input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form label {
+      margin-top: 15px;
+      display: block;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background: orange;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: darkorange;
+    }
+
+    .divider {
+      width: 1px;
+      background: #ddd;
+      height: auto;
+    }
+
+    .note {
+      font-size: 14px;
+      text-align: center;
+      color: #666;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Checkout</h1>
-  <form action="process_order.php" method="POST" onsubmit="return submitOrder()">
-    <input type="text" name="name" placeholder="Your Name" required><br><br>
-    <input type="text" name="card" placeholder="Card Number" maxlength="16" required><br><br>
+  <div class="container">
 
-    <input type="hidden" name="items" id="itemsField">
-    <input type="hidden" name="total" id="totalField">
+    <!-- ✅ UPI QR Code Section -->
+    <div class="section">
+      <h2>UPI Payment (PhonePe, GPay, Paytm)</h2>
+      <img src="upi://pay?pa=premsrinivas@axl&pn=Prem&mc=0000&mode=02&purpose=00" alt="Scan to Pay">
+      <p class="note">Scan the QR with any UPI app.<br><strong>Amount: ₹<span id="upi-amount">499</span></strong></p>
+      <button onclick="confirmUPIPayment()">✅ I Have Paid</button>
+    </div>
 
-    <button type="submit">Pay Now</button>
-  </form>
+    <div class="divider"></div>
+
+    <!-- ✅ Card Payment Form -->
+    <div class="section">
+      <h2>Card Payment</h2>
+      <form onsubmit="return processCardPayment()">
+        <label for="card-name">Cardholder Name</label>
+        <input type="text" id="card-name" required>
+
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" maxlength="16" required>
+
+        <label for="expiry">Expiry (MM/YY)</label>
+        <input type="text" id="expiry" required>
+
+        <label for="cvv">CVV</label>
+        <input type="password" id="cvv" maxlength="4" required>
+
+        <button type="submit">💳 Pay Now</button>
+      </form>
+    </div>
+    
+  </div>
 
   <script>
-    function submitOrder() {
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return false;
-      }
+    // You can pull total from localStorage/cart if needed
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const upiAmountEl = document.getElementById("upi-amount");
 
-      const items = cart.map(i => `${i.name} x${i.qty}`).join(', ');
-      const total = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+    let total = 0;
+    cart.forEach(item => {
+      total += item.price * item.qty;
+    });
+    upiAmountEl.innerText = total;
 
-      document.getElementById("itemsField").value = items;
-      document.getElementById("totalField").value = total;
-
+    function confirmUPIPayment() {
+      alert("✅ UPI Payment Confirmed! Thank you.");
       localStorage.removeItem("cart");
-      return true;
+      window.location.href = "profile.html";
     }
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let orders = JSON.parse(localStorage.getItem("orderHistory")) || [];
 
-const newOrder = {
-  date: new Date().toISOString().split("T")[0],
-  items: cart.map(p => p.name),
-  total: cart.reduce((acc, p) => acc + p.price * p.qty, 0)
-};
-
-orders.push(newOrder);
-localStorage.setItem("orderHistory", JSON.stringify(orders));
-localStorage.removeItem("cart"); // clear cart after order
-</script>
+    function processCardPayment() {
+      alert("✅ Card Payment Successful!");
+      localStorage.removeItem("cart");
+      window.location.href = "profile.html";
+      return false;
+    }
+  </script>
 
 </body>
 </html>
